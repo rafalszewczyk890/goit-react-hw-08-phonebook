@@ -80,13 +80,19 @@ export class App extends Component {
           onChange={this.onChange}
         ></input>
         <ul>
-          {contacts.map(contact => {
-            return (
-              <li key={contact.id}>
-                {contact.name}: {contact.number}
-              </li>
-            );
-          })}
+          {contacts
+            .filter(contact => {
+              return contact.name
+                .toLowerCase()
+                .includes(this.state.filter.toLowerCase());
+            })
+            .map(contact => {
+              return (
+                <li key={contact.id}>
+                  {contact.name}: {contact.number}
+                </li>
+              );
+            })}
         </ul>
       </>
     );
