@@ -4,11 +4,14 @@ import { nanoid } from 'nanoid';
 export class App extends Component {
   state = {
     contacts: [
-      { name: 'Anne Copeland', number: '333-222-334', id: nanoid() },
-      { name: 'Jackie Brown', number: '123-234-411', id: nanoid() },
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     name: '',
     number: '',
+    filter: '',
   };
 
   onChange = event => {
@@ -16,17 +19,19 @@ export class App extends Component {
       this.setState({ name: event.target.value });
     } else if (event.target.name === 'number') {
       this.setState({ number: event.target.value });
+    } else if (event.target.name === 'filter') {
+      this.setState({ filter: event.target.value });
     }
   };
 
-  addContact = () => {
+  addContact = event => {
+    event.preventDefault();
     const { name, number } = this.state;
     const newContact = {
       name: name,
       number: number,
       id: nanoid(),
     };
-    console.log(newContact);
 
     this.setState(prevState => {
       return { contacts: [...prevState.contacts, newContact] };
@@ -36,7 +41,7 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, name, number } = this.state;
+    const { contacts, name, number, filter } = this.state;
     return (
       <>
         <h1>Phonebook</h1>
@@ -61,9 +66,19 @@ export class App extends Component {
             value={number}
             onChange={this.onChange}
           />
-          <button onClick={this.addContact}>Add contact</button>
+          <button type="submit" onClick={this.addContact}>
+            Add contact
+          </button>
         </form>
         <h1>Contacts</h1>
+        <p>Find contacts by name</p>
+        <input
+          type="text"
+          name="filter"
+          title="Filter contacts by name"
+          value={filter}
+          onChange={this.onChange}
+        ></input>
         <ul>
           {contacts.map(contact => {
             return (
