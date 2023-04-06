@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm';
 import Filter from './Filter';
+import ContactList from './ContactList';
 
 export class App extends Component {
   state = {
@@ -39,21 +40,7 @@ export class App extends Component {
         <ContactForm onSubmit={this.addContact} />
         <h1>Contacts</h1>
         <Filter filter={filter} onFilterChange={this.onFilterChange} />
-        <ul>
-          {contacts
-            .filter(contact => {
-              return contact.name
-                .toLowerCase()
-                .includes(this.state.filter.toLowerCase());
-            })
-            .map(contact => {
-              return (
-                <li key={contact.id}>
-                  {contact.name}: {contact.number}
-                </li>
-              );
-            })}
-        </ul>
+        <ContactList contacts={contacts} filter={filter} />
       </>
     );
   }
