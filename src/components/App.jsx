@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm';
+import Filter from './Filter';
 
 export class App extends Component {
   state = {
@@ -13,14 +14,8 @@ export class App extends Component {
     filter: '',
   };
 
-  onChange = event => {
-    if (event.target.name === 'name') {
-      this.setState({ name: event.target.value });
-    } else if (event.target.name === 'number') {
-      this.setState({ number: event.target.value });
-    } else if (event.target.name === 'filter') {
-      this.setState({ filter: event.target.value });
-    }
+  onFilterChange = event => {
+    this.setState({ filter: event.target.value });
   };
 
   addContact = (event, name, number) => {
@@ -37,20 +32,13 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, name, number, filter } = this.state;
+    const { contacts, filter } = this.state;
     return (
       <>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <h1>Contacts</h1>
-        <p>Find contacts by name</p>
-        <input
-          type="text"
-          name="filter"
-          title="Filter contacts by name"
-          value={filter}
-          onChange={this.onChange}
-        ></input>
+        <Filter filter={filter} onFilterChange={this.onFilterChange} />
         <ul>
           {contacts
             .filter(contact => {

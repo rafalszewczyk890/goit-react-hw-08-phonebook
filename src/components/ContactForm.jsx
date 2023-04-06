@@ -11,8 +11,6 @@ export default class ContactForm extends Component {
       this.setState({ name: event.target.value });
     } else if (event.target.name === 'number') {
       this.setState({ number: event.target.value });
-    } else if (event.target.name === 'filter') {
-      this.setState({ filter: event.target.value });
     }
   };
 
