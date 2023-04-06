@@ -17,6 +17,9 @@ export default class ContactList extends Component {
                 id={contact.id}
                 name={contact.name}
                 number={contact.number}
+                onDelete={id => {
+                  return this.props.onDelete(id);
+                }}
               />
             );
           })}

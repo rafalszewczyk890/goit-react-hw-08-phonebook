@@ -5,7 +5,8 @@ export default class Contact extends Component {
     const { id, name, number } = this.props;
     return (
       <li key={id}>
-        {name}: {number}
+        {name}: {number}{' '}
+        <button onClick={() => this.props.onDelete(id)}>Delete</button>
       </li>
     );
   }
