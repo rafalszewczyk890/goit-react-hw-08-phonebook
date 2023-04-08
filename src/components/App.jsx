@@ -47,13 +47,11 @@ export const App = () => {
 
   const onDelete = id => {
     console.log(id);
-    setContacts(prevState => {
-      return {
-        contacts: prevState.contacts.filter(contact => {
-          return contact.id !== id;
-        }),
-      };
-    });
+    setContacts(
+      contacts.filter(contact => {
+        return contact.id !== id;
+      })
+    );
   };
 
   return (
