@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 
 export const ContactForm = props => {
-  // state = {
-  //   name: '',
-  //   number: '',
-  // };
-
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
