@@ -18,9 +18,7 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
-    if (contacts.length > 0) {
-      localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
-    }
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
   const onFilterChange = event => {
