@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm';
 import Filter from './Filter';
@@ -9,6 +9,7 @@ const LOCALSTORAGE_KEY = 'contacts';
 export const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
+  const isMounted = useRef(false);
 
   useEffect(() => {
     const storageContacts = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
@@ -18,7 +19,11 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
+    if (isMounted.current) {
+      localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
+    } else {
+      isMounted.current = true;
+    }
   }, [contacts]);
 
   const onFilterChange = event => {
@@ -44,12 +49,12 @@ export const App = () => {
   };
 
   const onDelete = id => {
-    console.log(id);
     setContacts(
       contacts.filter(contact => {
         return contact.id !== id;
       })
     );
+    console.log(contacts);
   };
 
   return (
