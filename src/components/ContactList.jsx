@@ -14,6 +14,7 @@ export default class ContactList extends Component {
           .map(contact => {
             return (
               <Contact
+                key={contact.id}
                 id={contact.id}
                 name={contact.name}
                 number={contact.number}
