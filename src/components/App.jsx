@@ -1,28 +1,23 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
 import { ContactList } from './ContactList';
-
-const LOCALSTORAGE_KEY = 'contacts';
+import { addContact } from 'redux/contactsSlice';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
   const isMounted = useRef(false);
 
-  // useEffect(() => {
-  //   const storageContacts = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-  //   if (storageContacts) {
-  //     setContacts(storageContacts);
-  //   }
-  // }, []);
+  const contacts = useSelector(state => state.contacts);
 
-  // useEffect(() => {
-  //   if (isMounted.current) {
-  //     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
-  //   } else {
-  //     isMounted.current = true;
-  //   }
-  // }, [contacts]);
-
+  useEffect(() => {
+    if (isMounted.current) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    } else {
+      isMounted.current = true;
+    }
+  }, [contacts]);
 
   return (
     <>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
 import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
