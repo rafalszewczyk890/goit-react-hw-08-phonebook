@@ -1,15 +1,21 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
+import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
-  
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
-    dispatch(addContact({ name: form.name.value, number: form.number.value }));
+    dispatch(
+      addContact({
+        id: nanoid(),
+        name: form.name.value,
+        number: form.number.value,
+      })
+    );
   };
 
   return (
