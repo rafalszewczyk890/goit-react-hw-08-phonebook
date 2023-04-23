@@ -7,16 +7,33 @@ import { useSelector } from 'react-redux';
 export const ContactForm = () => {
   const dispatch = useDispatch();
 
+  const getStorageContactValues = () => {
+    let storageContactValues = [];
+    const contacts = JSON.parse(localStorage.getItem('contacts'));
+    for (let contact of contacts) {
+      storageContactValues.push(...Object.values(contact));
+    }
+    return storageContactValues;
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
-    dispatch(
-      addContact({
-        id: nanoid(),
-        name: form.name.value,
-        number: form.number.value,
-      })
-    );
+    let storageContactValues = getStorageContactValues();
+    console.log(storageContactValues);
+    if (storageContactValues.includes(form.name.value)) {
+      alert(`${form.name.value} is already in the contacts!`);
+    } else {
+      dispatch(
+        addContact({
+          id: nanoid(),
+          name: form.name.value,
+          number: form.number.value,
+        })
+      );
+    }
+    form.name.value = '';
+    form.number.value = '';
   };
 
   return (
