@@ -1,14 +1,12 @@
 import React from 'react';
 import { setStatusFilter } from 'redux/filterSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
 
   const handleChange = event => {
     const form = event.target;
-    console.log(form.value);
     dispatch(setStatusFilter(form.value));
   };
 
