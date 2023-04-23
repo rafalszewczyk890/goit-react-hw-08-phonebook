@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
 import { ContactList } from './ContactList';
@@ -24,36 +23,6 @@ export const App = () => {
   //   }
   // }, [contacts]);
 
-  // const onFilterChange = event => {
-  //   setFilter(event.target.value);
-  // };
-
-  // const addContact = (event, name, number) => {
-  //   event.preventDefault();
-  //   const newContact = {
-  //     name: name,
-  //     number: number,
-  //     id: nanoid(),
-  //   };
-
-  //   for (let contact of contacts) {
-  //     if (Object.values(contact).includes(newContact.name)) {
-  //       alert(`${name} is already in the contacts`);
-  //       return;
-  //     }
-  //   }
-
-  //   setContacts([...contacts, newContact]);
-  // };
-
-  // const onDelete = id => {
-  //   setContacts(
-  //     contacts.filter(contact => {
-  //       return contact.id !== id;
-  //     })
-  //   );
-  //   console.log(contacts);
-  // };
 
   return (
     <>
