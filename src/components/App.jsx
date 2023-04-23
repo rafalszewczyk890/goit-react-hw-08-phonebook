@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm';
-import Filter from './Filter';
+import { Filter } from './Filter';
 import { ContactList } from './ContactList';
 
 const LOCALSTORAGE_KEY = 'contacts';
