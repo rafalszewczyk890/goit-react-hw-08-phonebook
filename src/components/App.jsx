@@ -3,12 +3,10 @@ import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
 import { ContactList } from './ContactList';
 import { useSelector, useDispatch } from 'react-redux';
-import { contactsSelector, getIsLoading, getError } from 'redux/selectors';
+import { getIsLoading, getError } from 'redux/selectors';
 import { fetchContacts } from 'redux/operations';
 
 export const App = () => {
-  // const isMounted = useRef(false);
-  // const contacts = useSelector(contactsSelector);
 
   const dispatch = useDispatch();
 
