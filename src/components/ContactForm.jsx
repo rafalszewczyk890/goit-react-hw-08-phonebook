@@ -1,10 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
 import { addContact } from 'redux/operations';
+import { useSelector } from 'react-redux';
+import { contactsSelector } from 'redux/selectors';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(contactsSelector);
+  let names = contacts.map(contact => contact.name);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -12,8 +15,12 @@ export const ContactForm = () => {
     const name = form.name.value;
     const number = form.number.value;
     const text = { name, number };
-    dispatch(addContact(text));
-    form.reset();
+    if (names.includes(name)) {
+      alert(`${name} is already on the list!`);
+    } else {
+      dispatch(addContact(text));
+      form.reset();
+    }
   };
 
   return (
