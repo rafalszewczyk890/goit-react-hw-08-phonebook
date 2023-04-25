@@ -1,36 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
-import { nanoid } from 'nanoid';
+
+import { addContact } from 'redux/operations';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const getStorageContactNames = () => {
-    let storageContactNames = [];
-    const contacts = JSON.parse(localStorage.getItem('contacts'));
-    for (let contact of contacts) {
-      storageContactNames.push(contact.name);
-    }
-    return storageContactNames;
-  };
 
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
-    let storageContactNames = getStorageContactNames();
-    if (storageContactNames.includes(form.name.value)) {
-      alert(`${form.name.value} is already in the contacts!`);
-    } else {
-      dispatch(
-        addContact({
-          id: nanoid(),
-          name: form.name.value,
-          number: form.number.value,
-        })
-      );
-    }
-    form.name.value = '';
-    form.number.value = '';
+    const name = form.name.value;
+    const number = form.number.value;
+    const text = { name, number };
+    dispatch(addContact(text));
+    form.reset();
   };
 
   return (

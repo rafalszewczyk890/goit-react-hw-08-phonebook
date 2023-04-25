@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
 import { ContactList } from './ContactList';
@@ -12,7 +12,6 @@ export const App = () => {
 
   const dispatch = useDispatch();
 
-  const items = useSelector(contactsSelector);
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
 
