@@ -1,0 +1,8 @@
+.homePageContainer {
+  color: white;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  margin: 10px;
+  font-family: 'Fugaz One', sans-serif;
+}

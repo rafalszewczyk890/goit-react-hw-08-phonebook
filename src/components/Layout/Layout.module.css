@@ -1,0 +1,7 @@
+.appContainer {
+  background-color: rgb(37, 37, 37);
+  width: 50vh;
+  height: 50vh;
+  margin: 10px auto;
+  border-radius: 2px;
+}

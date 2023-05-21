@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  padding: 5px;
+  gap: 10px;
+  font-family: 'Fugaz One', sans-serif;
+  background-color: #379683;
+  border-radius: 2px;
+}
+
+.navContainer {
+  display: flex;
+  gap: 1vh;
+}

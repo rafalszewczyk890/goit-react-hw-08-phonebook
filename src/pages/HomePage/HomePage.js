@@ -1,3 +1,11 @@
+import css from '../HomePage/HomePage.module.css';
 export const HomePage = () => {
-  return <div>This is Homepage!</div>;
+  return (
+    <>
+      <div className={css.homePageContainer}>
+        Welcome to the Contact Manager™!
+      </div>
+      <img alt="notepad" src="notepad.png"></img>
+    </>
+  );
 };
