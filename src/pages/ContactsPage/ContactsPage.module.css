@@ -1,0 +1,11 @@
+h1 {
+  color: white;
+  font-family: 'Fugaz One', sans-serif;
+}
+
+.contactsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

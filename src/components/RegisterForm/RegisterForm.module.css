@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Wix Madefor Display', sans-serif;
+  gap: 10px;
+  margin: 10px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background-color: #ff5959;
+  font-size: 1.5vh;
+  font-family: 'Fugaz One', sans-serif;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}

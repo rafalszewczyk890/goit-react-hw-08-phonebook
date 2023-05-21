@@ -1,0 +1,15 @@
+.item {
+  list-style-type: none;
+  color: white;
+  font-family: 'Wix Madefor Display', sans-serif;
+}
+
+.button {
+  padding: 5px;
+  background-color: #ff5959;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: 'Wix Madefor Display', sans-serif;
+}

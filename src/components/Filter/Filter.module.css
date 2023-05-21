@@ -1,0 +1,9 @@
+.filter {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Wix Madefor Display', sans-serif;
+}

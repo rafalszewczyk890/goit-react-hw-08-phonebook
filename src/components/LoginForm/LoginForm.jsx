@@ -25,9 +25,11 @@ export const LoginForm = () => {
       </label>
       <label className={css.label}>
         Password
-        <input type="password" name="password" />
+        <input type="password" name="password" autoComplete='current-password'/>
       </label>
-      <button type="submit">Log In</button>
+      <button className={css.button} type="submit">
+        Log In
+      </button>
     </form>
   );
 };

@@ -30,9 +30,15 @@ export const RegisterForm = () => {
       </label>
       <label className={css.label}>
         Password
-        <input type="password" name="password" />
+        <input
+          type="password"
+          name="password"
+          autoComplete="current-password"
+        />
       </label>
-      <button type="submit">Register</button>
+      <button className={css.button} type="submit">
+        Register
+      </button>
     </form>
   );
 };

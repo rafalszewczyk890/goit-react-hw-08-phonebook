@@ -1,6 +1,7 @@
 import React from 'react';
 import { setStatusFilter } from 'redux/filterSlice';
 import { useDispatch } from 'react-redux';
+import css from './Filter.module.css';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ export const Filter = () => {
   };
 
   return (
-    <div>
+    <div className={css.filter}>
       <p>Find contacts by name</p>
       <input
         type="text"

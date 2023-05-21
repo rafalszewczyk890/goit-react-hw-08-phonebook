@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { useSelector } from 'react-redux';
 import { contactsSelector } from 'redux/selectors';
+import css from '../ContactForm/ContactForm.module.css';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={ css.form} onSubmit={handleSubmit}>
       <label>Name</label>
       <input
         type="text"
@@ -39,7 +40,7 @@ export const ContactForm = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-      <button type="submit">Add contact</button>
+      <button className={css.button } type="submit">Add contact</button>
     </form>
   );
 };

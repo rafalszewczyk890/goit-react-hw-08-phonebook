@@ -5,7 +5,6 @@ export const HomePage = () => {
       <div className={css.homePageContainer}>
         Welcome to the Contact Manager™!
       </div>
-      <img alt="notepad" src="notepad.png"></img>
     </>
   );
 };

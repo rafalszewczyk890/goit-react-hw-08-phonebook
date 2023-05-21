@@ -1,6 +1,15 @@
 .nav {
   padding: 5px;
-  background-color: #907163;
   border-radius: 2px;
   font-family: 'Fugaz One', sans-serif;
+  font-size: 1.5vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.navlink {
+  margin: 10px;
+  background-color: #907163;
+  padding: 5px;
 }

@@ -5,6 +5,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { useSelector, useDispatch } from 'react-redux';
 import { getIsLoading, getError } from 'redux/selectors';
 import { fetchContacts } from 'redux/operations';
+import css from '../ContactsPage/ContactsPage.module.css';
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className={css.contactsContainer}>
       <h1>Phonebook</h1>
       <ContactForm />
       <h1>Contacts</h1>
@@ -25,6 +26,6 @@ export const ContactsPage = () => {
       {isLoading && !error && <b>Loading</b>}
       {error && <p>{error}</p>}
       <ContactList />
-    </>
+    </div>
   );
 };
