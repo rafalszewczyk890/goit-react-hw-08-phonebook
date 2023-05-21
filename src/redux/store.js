@@ -9,6 +9,7 @@ import {
   REGISTER,
   REHYDRATE,
   persistReducer,
+  persistStore,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 // import thunk from 'redux-thunk';
@@ -21,11 +22,11 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const middleware = {
-  serializableCheck: {
-    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  },
-};
+// const middleware = {
+//   serializableCheck: {
+//     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//   },
+// };
 
 export const store = configureStore({
   reducer: {
@@ -33,5 +34,10 @@ export const store = configureStore({
     contacts: contactsReducer,
     filter: filterReducer,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middleware),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
+
+export const persistor = persistStore(store);
