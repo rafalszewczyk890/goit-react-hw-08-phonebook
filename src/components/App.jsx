@@ -1,10 +1,3 @@
-// import { useEffect } from 'react';
-// import { ContactForm } from './ContactForm';
-// import { Filter } from './Filter';
-// import { ContactList } from './ContactList';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getIsLoading, getError } from 'redux/selectors';
-// import { fetchContacts } from 'redux/operations';
 import { Route, Routes } from 'react-router-dom';
 import { HomePage } from 'pages/HomePage';
 import { LoginPage } from 'pages/LoginPage';
