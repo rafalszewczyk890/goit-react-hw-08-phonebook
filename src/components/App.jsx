@@ -47,7 +47,14 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
-          <Route path="*" element={<div>Invalid page</div>} />
+          <Route
+            path="*"
+            element={
+              <div style={{ color: 'white' }}>
+                Error - The page which you tried to access does not exist
+              </div>
+            }
+          />
         </Route>
       </Routes>
     </div>
